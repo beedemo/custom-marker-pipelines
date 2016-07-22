@@ -1,0 +1,5 @@
+node('docker-cloud') {
+  dockerBuildPublish {
+		dockerHubCredentialsId = 'docker-registry-login'
+	}
+}
