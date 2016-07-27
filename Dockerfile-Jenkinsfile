@@ -1,5 +1,5 @@
 node('docker-cloud') {
   dockerBuildPublish {
-		dockerHubCredentialsId = 'docker-registry-login'
+		dockerHubCredentialsId = 'docker-hub-beedemo'
 	}
 }
