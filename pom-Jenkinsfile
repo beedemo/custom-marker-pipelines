@@ -2,6 +2,7 @@ node('docker-cloud') {
   stage 'Build and Verify'
   checkout scm
   docker.image("maven:3.3.3-jdk-8").inside(){
+    helloWorld('Bob')
     sh 'mvn verify'
   }
 }
