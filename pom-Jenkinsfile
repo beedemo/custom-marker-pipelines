@@ -1,13 +1,12 @@
-node('docker-cloud') {
+node('maven-jdk-8') {
   stage 'Build and Verify'
   checkout scm
   sh('git rev-parse HEAD > GIT_COMMIT')
   git_commit=readFile('GIT_COMMIT')
   short_commit=git_commit.take(7)
-  docker.image("maven:3.3.3-jdk-8").inside(){
-    helloWorld('Bob')
-    sh 'mvn verify'
-  }
+  helloWorld('Bob')
+  sh 'mvn verify'
+
   stage 'Deploy'
   tokens = "${env.JOB_NAME}".tokenize('/')
     org = tokens[tokens.size()-3]
