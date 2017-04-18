@@ -1,5 +1,7 @@
-node('docker-cloud') {
-  dockerBuildPublish {
-		dockerHubCredentialsId = 'docker-hub-beedemo'
+pipeline {
+	script {
+  	dockerBuildPublish {
+			dockerHubCredentialsId = 'docker-hub-beedemo'
+		}
 	}
 }
