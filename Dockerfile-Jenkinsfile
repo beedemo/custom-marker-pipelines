@@ -1,5 +1,5 @@
 node('docker-cloud') {
   dockerBuildPublish {
-		def dockerHubCredentialsId = 'docker-hub-beedemo'
+		dockerHubCredentialsId = 'docker-hub-beedemo'
 	}
 }
