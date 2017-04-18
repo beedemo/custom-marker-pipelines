@@ -9,7 +9,7 @@ pipeline {
         stage('Setup') {
 			steps {
 				script {
-  					dockerBuildDockerHubPush {
+  					dockerBuildPublish {
 						dockerHubCredentialsId = 'docker-hub-beedemo'
 					}
 				}
