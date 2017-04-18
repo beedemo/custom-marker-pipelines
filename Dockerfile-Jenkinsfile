@@ -1,7 +1,17 @@
 pipeline {
-	script {
-  		dockerBuildPublish {
-			dockerHubCredentialsId = 'docker-hub-beedemo'
+    options { 
+        buildDiscarder(logRotator(numToKeepStr: '7')) 
+        skipDefaultCheckout() 
+    }
+    stages {
+        stage('Setup') {
+			steps {
+				script {
+  					dockerBuildPublish {
+						dockerHubCredentialsId = 'docker-hub-beedemo'
+					}
+				}
+			}
 		}
 	}
 }
