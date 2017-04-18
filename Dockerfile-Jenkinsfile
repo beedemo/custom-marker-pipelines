@@ -1,6 +1,6 @@
 pipeline {
 	script {
-  	dockerBuildPublish {
+  		dockerBuildPublish {
 			dockerHubCredentialsId = 'docker-hub-beedemo'
 		}
 	}
