@@ -4,7 +4,7 @@ node('maven-jdk-8') {
   sh('git rev-parse HEAD > GIT_COMMIT')
   git_commit=readFile('GIT_COMMIT')
   short_commit=git_commit.take(7)
-  helloWorld('Bob')
+  echo "$short_commit"
   sh 'mvn verify'
 
   stage 'Deploy'
@@ -12,5 +12,4 @@ node('maven-jdk-8') {
     org = tokens[tokens.size()-3]
     repo = tokens[tokens.size()-2]
     branch = tokens[tokens.size()-1]
-  deployAnalytics("http://elasticsearch.jenkins.beedemo.net", "es-auth", "Jetty 9", "${repo}", "${repo}.war", "NA",  new Date().format("EEE, d MMM yyyy HH:mm:ss Z"), short_commit, "Success")
 }
